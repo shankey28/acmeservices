@@ -18,7 +18,7 @@
           "name" : "getApplicantProfile",
           "description" : null,
           "args" : [ {
-            "name" : "UserName",
+            "name" : "userName",
             "description" : null,
             "type" : {
               "kind" : "NON_NULL",
@@ -42,7 +42,7 @@
           "name" : "listApplicantProfiles",
           "description" : null,
           "args" : [ {
-            "name" : "UserName",
+            "name" : "userName",
             "description" : null,
             "type" : {
               "kind" : "SCALAR",
@@ -98,7 +98,7 @@
           "name" : "getRecuriterComment",
           "description" : null,
           "args" : [ {
-            "name" : "CandidateId",
+            "name" : "candidateID",
             "description" : null,
             "type" : {
               "kind" : "NON_NULL",
@@ -111,7 +111,7 @@
             },
             "defaultValue" : null
           }, {
-            "name" : "CreatedOn",
+            "name" : "createdOn",
             "description" : null,
             "type" : {
               "kind" : "NON_NULL",
@@ -135,7 +135,7 @@
           "name" : "listRecuriterComments",
           "description" : null,
           "args" : [ {
-            "name" : "CandidateId",
+            "name" : "candidateID",
             "description" : null,
             "type" : {
               "kind" : "SCALAR",
@@ -144,7 +144,7 @@
             },
             "defaultValue" : null
           }, {
-            "name" : "CreatedOn",
+            "name" : "createdOn",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
@@ -196,68 +196,6 @@
           },
           "isDeprecated" : false,
           "deprecationReason" : null
-        }, {
-          "name" : "getApplicantEmployer",
-          "description" : null,
-          "args" : [ {
-            "name" : "id",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "SCALAR",
-                "name" : "ID",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "listApplicantEmployers",
-          "description" : null,
-          "args" : [ {
-            "name" : "filter",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerFilterInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "limit",
-            "description" : null,
-            "type" : {
-              "kind" : "SCALAR",
-              "name" : "Int",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "nextToken",
-            "description" : null,
-            "type" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ModelApplicantEmployerConnection",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
         } ],
         "inputFields" : null,
         "interfaces" : [ ],
@@ -283,7 +221,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "Email",
+          "name" : "email",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -294,7 +232,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "UserName",
+          "name" : "userName",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -309,7 +247,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "Name",
+          "name" : "name",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -324,7 +262,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "YoE",
+          "name" : "yOe",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -339,7 +277,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "CaFocus",
+          "name" : "caFocus",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -354,7 +292,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "PayOpt",
+          "name" : "payOpt",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -365,7 +303,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "Gender",
+          "name" : "gender",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -376,7 +314,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "AppStatus",
+          "name" : "appStatus",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -387,12 +325,23 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "Resume",
+          "name" : "resume",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "S3Object",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "employer",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -424,6 +373,17 @@
               "name" : "AWSDateTime",
               "ofType" : null
             }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "owner",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -702,7 +662,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Email",
+          "name" : "email",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -711,7 +671,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "UserName",
+          "name" : "userName",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -720,7 +680,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Name",
+          "name" : "name",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -729,7 +689,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "YoE",
+          "name" : "yOe",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -738,7 +698,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CaFocus",
+          "name" : "caFocus",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -747,7 +707,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "PayOpt",
+          "name" : "payOpt",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -756,7 +716,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Gender",
+          "name" : "gender",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -765,11 +725,20 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "AppStatus",
+          "name" : "appStatus",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelApplicantStatusInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "employer",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -1399,7 +1368,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "CandidateId",
+          "name" : "candidateID",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -1414,7 +1383,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "Comment",
+          "name" : "comment",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -1425,7 +1394,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "CreatedOn",
+          "name" : "createdOn",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -1466,6 +1435,17 @@
               "name" : "AWSDateTime",
               "ofType" : null
             }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "owner",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
@@ -1600,7 +1580,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CandidateId",
+          "name" : "candidateID",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1609,7 +1589,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Comment",
+          "name" : "comment",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1618,7 +1598,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CreatedOn",
+          "name" : "createdOn",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -1667,187 +1647,6 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ApplicantEmployer",
-        "description" : null,
-        "fields" : [ {
-          "name" : "id",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "CandidateId",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "EmployerCode",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "createdAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "updatedAt",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "OBJECT",
-        "name" : "ModelApplicantEmployerConnection",
-        "description" : null,
-        "fields" : [ {
-          "name" : "items",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "OBJECT",
-              "name" : "ApplicantEmployer",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "nextToken",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        } ],
-        "inputFields" : null,
-        "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelApplicantEmployerFilterInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "CandidateId",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelIDInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "EmployerCode",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "and",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerFilterInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "or",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerFilterInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "not",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelApplicantEmployerFilterInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "OBJECT",
         "name" : "Mutation",
         "description" : null,
         "fields" : [ {
@@ -1862,39 +1661,6 @@
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
                 "name" : "CreateApplicantProfileInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantProfileConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ApplicantProfile",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "updateApplicantProfile",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "UpdateApplicantProfileInput",
                 "ofType" : null
               }
             },
@@ -1983,39 +1749,6 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateRecuriterComment",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "UpdateRecuriterCommentInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelRecuriterCommentConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "RecuriterComment",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
           "name" : "deleteRecuriterComment",
           "description" : null,
           "args" : [ {
@@ -2049,7 +1782,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "createApplicantEmployer",
+          "name" : "updateApplicantProfile",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2059,7 +1792,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateApplicantEmployerInput",
+                "name" : "UpdateApplicantProfileInput",
                 "ofType" : null
               }
             },
@@ -2069,20 +1802,20 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerConditionInput",
+              "name" : "ModelApplicantProfileConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
+            "name" : "ApplicantProfile",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateApplicantEmployer",
+          "name" : "updateRecuriterComment",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -2092,7 +1825,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateApplicantEmployerInput",
+                "name" : "UpdateRecuriterCommentInput",
                 "ofType" : null
               }
             },
@@ -2102,47 +1835,14 @@
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerConditionInput",
+              "name" : "ModelRecuriterCommentConditionInput",
               "ofType" : null
             },
             "defaultValue" : null
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "deleteApplicantEmployer",
-          "description" : null,
-          "args" : [ {
-            "name" : "input",
-            "description" : null,
-            "type" : {
-              "kind" : "NON_NULL",
-              "name" : null,
-              "ofType" : {
-                "kind" : "INPUT_OBJECT",
-                "name" : "DeleteApplicantEmployerInput",
-                "ofType" : null
-              }
-            },
-            "defaultValue" : null
-          }, {
-            "name" : "condition",
-            "description" : null,
-            "type" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerConditionInput",
-              "ofType" : null
-            },
-            "defaultValue" : null
-          } ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
+            "name" : "RecuriterComment",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -2167,7 +1867,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Email",
+          "name" : "email",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2176,7 +1876,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "UserName",
+          "name" : "userName",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2189,7 +1889,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Name",
+          "name" : "name",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2202,7 +1902,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "YoE",
+          "name" : "yOe",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2215,7 +1915,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CaFocus",
+          "name" : "caFocus",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2228,7 +1928,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "PayOpt",
+          "name" : "payOpt",
           "description" : null,
           "type" : {
             "kind" : "ENUM",
@@ -2237,7 +1937,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Gender",
+          "name" : "gender",
           "description" : null,
           "type" : {
             "kind" : "ENUM",
@@ -2246,7 +1946,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "AppStatus",
+          "name" : "appStatus",
           "description" : null,
           "type" : {
             "kind" : "ENUM",
@@ -2255,11 +1955,20 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Resume",
+          "name" : "resume",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "S3ObjectInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "employer",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2321,7 +2030,7 @@
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "Email",
+          "name" : "email",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2330,7 +2039,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Name",
+          "name" : "name",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2339,7 +2048,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "YoE",
+          "name" : "yOe",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2348,7 +2057,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CaFocus",
+          "name" : "caFocus",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2357,7 +2066,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "PayOpt",
+          "name" : "payOpt",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2366,7 +2075,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Gender",
+          "name" : "gender",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2375,11 +2084,20 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "AppStatus",
+          "name" : "appStatus",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
             "name" : "ModelApplicantStatusInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "employer",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -2424,118 +2142,11 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateApplicantProfileInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "Email",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "AWSEmail",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "UserName",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "Name",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "YoE",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "YearOfExperience",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "CaFocus",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "CareerFocus",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "PayOpt",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "PaymentOption",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "Gender",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "Gender",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "AppStatus",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ApplicantStatus",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "Resume",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "S3ObjectInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
         "name" : "DeleteApplicantProfileInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "UserName",
+          "name" : "userName",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2566,7 +2177,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CandidateId",
+          "name" : "candidateID",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2579,7 +2190,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Comment",
+          "name" : "comment",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2588,7 +2199,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CreatedOn",
+          "name" : "createdOn",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2610,7 +2221,7 @@
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
-          "name" : "Comment",
+          "name" : "comment",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -2659,6 +2270,157 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
+        "name" : "DeleteRecuriterCommentInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "candidateID",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "createdOn",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "AWSDateTime",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "UpdateApplicantProfileInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "id",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "ID",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "email",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "AWSEmail",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "userName",
+          "description" : null,
+          "type" : {
+            "kind" : "NON_NULL",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "name",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "yOe",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "YearOfExperience",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "caFocus",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "CareerFocus",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "payOpt",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "PaymentOption",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "gender",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "Gender",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "appStatus",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "ApplicantStatus",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "resume",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "S3ObjectInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "employer",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
         "name" : "UpdateRecuriterCommentInput",
         "description" : null,
         "fields" : null,
@@ -2676,7 +2438,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CandidateId",
+          "name" : "candidateID",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2689,7 +2451,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "Comment",
+          "name" : "comment",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -2698,7 +2460,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "CreatedOn",
+          "name" : "createdOn",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -2708,192 +2470,6 @@
               "name" : "AWSDateTime",
               "ofType" : null
             }
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "DeleteRecuriterCommentInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "CandidateId",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "CreatedOn",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "AWSDateTime",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "CreateApplicantEmployerInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "CandidateId",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "ID",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "EmployerCode",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelApplicantEmployerConditionInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "CandidateId",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelIDInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "EmployerCode",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "and",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerConditionInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "or",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "INPUT_OBJECT",
-              "name" : "ModelApplicantEmployerConditionInput",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "not",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelApplicantEmployerConditionInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "UpdateApplicantEmployerInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "CandidateId",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "EmployerCode",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "DeleteApplicantEmployerInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "id",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "ID",
-            "ofType" : null
           },
           "defaultValue" : null
         } ],
@@ -2907,7 +2483,16 @@
         "fields" : [ {
           "name" : "onCreateApplicantProfile",
           "description" : null,
-          "args" : [ ],
+          "args" : [ {
+            "name" : "owner",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "ApplicantProfile",
@@ -2918,7 +2503,16 @@
         }, {
           "name" : "onUpdateApplicantProfile",
           "description" : null,
-          "args" : [ ],
+          "args" : [ {
+            "name" : "owner",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "ApplicantProfile",
@@ -2929,7 +2523,16 @@
         }, {
           "name" : "onDeleteApplicantProfile",
           "description" : null,
-          "args" : [ ],
+          "args" : [ {
+            "name" : "owner",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "ApplicantProfile",
@@ -2940,7 +2543,16 @@
         }, {
           "name" : "onCreateRecuriterComment",
           "description" : null,
-          "args" : [ ],
+          "args" : [ {
+            "name" : "owner",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "RecuriterComment",
@@ -2951,7 +2563,16 @@
         }, {
           "name" : "onUpdateRecuriterComment",
           "description" : null,
-          "args" : [ ],
+          "args" : [ {
+            "name" : "owner",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "RecuriterComment",
@@ -2962,7 +2583,16 @@
         }, {
           "name" : "onDeleteRecuriterComment",
           "description" : null,
-          "args" : [ ],
+          "args" : [ {
+            "name" : "owner",
+            "description" : null,
+            "type" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            },
+            "defaultValue" : null
+          } ],
           "type" : {
             "kind" : "OBJECT",
             "name" : "RecuriterComment",
@@ -2970,181 +2600,9 @@
           },
           "isDeprecated" : false,
           "deprecationReason" : null
-        }, {
-          "name" : "onCreateApplicantEmployer",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "onUpdateApplicantEmployer",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "onDeleteApplicantEmployer",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "OBJECT",
-            "name" : "ApplicantEmployer",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
         } ],
         "inputFields" : null,
         "interfaces" : [ ],
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelBooleanInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeExists",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeType",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ModelAttributeTypes",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
-        "name" : "ModelIntInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "le",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "lt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "ge",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "gt",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "between",
-          "description" : null,
-          "type" : {
-            "kind" : "LIST",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "Int",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeExists",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "attributeType",
-          "description" : null,
-          "type" : {
-            "kind" : "ENUM",
-            "name" : "ModelAttributeTypes",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
         "enumValues" : null,
         "possibleTypes" : null
       }, {
@@ -3247,6 +2705,145 @@
         "description" : "Built-in Float",
         "fields" : null,
         "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelIntInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "le",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "lt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "ge",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "gt",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Int",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "between",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "Int",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeExists",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeType",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "ModelAttributeTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelBooleanInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeExists",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "attributeType",
+          "description" : null,
+          "type" : {
+            "kind" : "ENUM",
+            "name" : "ModelAttributeTypes",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
         "interfaces" : null,
         "enumValues" : null,
         "possibleTypes" : null
@@ -4050,6 +3647,23 @@
         "onFragment" : false,
         "onField" : false
       }, {
+        "name" : "deprecated",
+        "description" : null,
+        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
+        "args" : [ {
+          "name" : "reason",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
+            "ofType" : null
+          },
+          "defaultValue" : "\"No longer supported\""
+        } ],
+        "onOperation" : false,
+        "onFragment" : false,
+        "onField" : false
+      }, {
         "name" : "aws_cognito_user_pools",
         "description" : "Tells the service this field/object has access authorized by a Cognito User Pools token.",
         "locations" : [ "OBJECT", "FIELD_DEFINITION" ],
@@ -4108,23 +3722,6 @@
             }
           },
           "defaultValue" : null
-        } ],
-        "onOperation" : false,
-        "onFragment" : false,
-        "onField" : false
-      }, {
-        "name" : "deprecated",
-        "description" : null,
-        "locations" : [ "FIELD_DEFINITION", "ENUM_VALUE" ],
-        "args" : [ {
-          "name" : "reason",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : "\"No longer supported\""
         } ],
         "onOperation" : false,
         "onFragment" : false,

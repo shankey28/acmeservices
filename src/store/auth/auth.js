@@ -27,8 +27,14 @@ export const auth = {
 
                 const userInfo = await Auth.currentUserInfo();
                 commit("setUser", userInfo);
-                return Promise.resolve("Success");
 
+                const {accessToken} = await Auth.currentSession();
+                // get the tenant from the top of the cognito groups list
+                const cognitogroups = accessToken.payload['cognito:groups'];
+                const tenant = cognitogroups[0];
+                commit("setUserGroup",tenant);    
+
+                return Promise.resolve("Success");
 
             } catch (error) {
                 console.log(error);

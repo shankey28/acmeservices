@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions,mapGetters } from "vuex";
 export default {
   data: () => ({
     username: "",
@@ -44,6 +44,7 @@ export default {
           username: this.username,
           password: this.password,
         });
+        const usergroup = mapGetters(["auth/usergroup"])
         this.$router.push("/albums");
       } catch (error) {
         this.error = error;

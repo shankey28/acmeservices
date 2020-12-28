@@ -3,6 +3,9 @@
 </template>
 
 <script>
+export default {
+  name: "Recruiter"
+};
 
 </script>
 

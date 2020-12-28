@@ -95,65 +95,11 @@
         },
      
     
-        "applicantsGroup": {
-          "Type" : "AWS::Cognito::UserPoolGroup",
-          "Properties" : {
-              "GroupName" : "applicants",
-              "Precedence" : 2,
-              
-              "RoleArn" : {
-                "Fn::GetAtt": [
-                    "applicantsGroupRole",
-                    "Arn"
-                ]
-              },
-              
-              "UserPoolId" : {
-                "Ref": "authacmeresumeserviceUserPoolId"
-              } 
-            }
-        },
-        
-        "applicantsGroupRole": {
-            "Type": "AWS::IAM::Role",
-            "Properties": {
-                "RoleName":{
-                    "Fn::Join": [
-                        "",
-                        [
-                          {
-                            "Ref": "authacmeresumeserviceUserPoolId"
-                          },
-                          "-applicantsGroupRole"
-                        ]
-                    ]
-                },
-                "AssumeRolePolicyDocument": {
-                    "Version": "2012-10-17",
-                    "Statement": [
-                        {
-                            "Sid": "",
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Federated": "cognito-identity.amazonaws.com"
-                            },
-                            "Action": "sts:AssumeRoleWithWebIdentity",
-                            "Condition": {
-                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authacmeresumeserviceIdentityPoolId"}},
-                              "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-     
-    
         "recruiterGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
               "GroupName" : "recruiter",
-              "Precedence" : 3,
+              "Precedence" : 2,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
@@ -207,7 +153,7 @@
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
               "GroupName" : "employer",
-              "Precedence" : 4,
+              "Precedence" : 3,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
@@ -233,6 +179,60 @@
                             "Ref": "authacmeresumeserviceUserPoolId"
                           },
                           "-employerGroupRole"
+                        ]
+                    ]
+                },
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Sid": "",
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Federated": "cognito-identity.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRoleWithWebIdentity",
+                            "Condition": {
+                              "StringEquals": {"cognito-identity.amazonaws.com:aud": {"Ref":"authacmeresumeserviceIdentityPoolId"}},
+                              "ForAnyValue:StringLike": {"cognito-identity.amazonaws.com:amr": "authenticated"}
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+     
+    
+        "applicantsGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "applicants",
+              "Precedence" : 4,
+              
+              "RoleArn" : {
+                "Fn::GetAtt": [
+                    "applicantsGroupRole",
+                    "Arn"
+                ]
+              },
+              
+              "UserPoolId" : {
+                "Ref": "authacmeresumeserviceUserPoolId"
+              } 
+            }
+        },
+        
+        "applicantsGroupRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName":{
+                    "Fn::Join": [
+                        "",
+                        [
+                          {
+                            "Ref": "authacmeresumeserviceUserPoolId"
+                          },
+                          "-applicantsGroupRole"
                         ]
                     ]
                 },
@@ -468,17 +468,6 @@
         },
         
       
-        "applicantsGroupRole": {
-            "Value": {
-                "Fn::GetAtt": [
-                    "applicantsGroupRole",
-                    "Arn"
-                ]
-            }
-         
-        },
-        
-      
         "recruiterGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
@@ -494,6 +483,17 @@
             "Value": {
                 "Fn::GetAtt": [
                     "employerGroupRole",
+                    "Arn"
+                ]
+            }
+         
+        },
+        
+      
+        "applicantsGroupRole": {
+            "Value": {
+                "Fn::GetAtt": [
+                    "applicantsGroupRole",
                     "Arn"
                 ]
             }

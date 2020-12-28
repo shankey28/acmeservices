@@ -8,46 +8,23 @@ export const createApplicantProfile = /* GraphQL */ `
   ) {
     createApplicantProfile(input: $input, condition: $condition) {
       id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
         bucket
         region
         key
       }
+      employer
       createdAt
       updatedAt
-    }
-  }
-`;
-export const updateApplicantProfile = /* GraphQL */ `
-  mutation UpdateApplicantProfile(
-    $input: UpdateApplicantProfileInput!
-    $condition: ModelApplicantProfileConditionInput
-  ) {
-    updateApplicantProfile(input: $input, condition: $condition) {
-      id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
-        bucket
-        region
-        key
-      }
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;
@@ -58,21 +35,23 @@ export const deleteApplicantProfile = /* GraphQL */ `
   ) {
     deleteApplicantProfile(input: $input, condition: $condition) {
       id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
         bucket
         region
         key
       }
+      employer
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -83,26 +62,12 @@ export const createRecuriterComment = /* GraphQL */ `
   ) {
     createRecuriterComment(input: $input, condition: $condition) {
       id
-      CandidateId
-      Comment
-      CreatedOn
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
-    }
-  }
-`;
-export const updateRecuriterComment = /* GraphQL */ `
-  mutation UpdateRecuriterComment(
-    $input: UpdateRecuriterCommentInput!
-    $condition: ModelRecuriterCommentConditionInput
-  ) {
-    updateRecuriterComment(input: $input, condition: $condition) {
-      id
-      CandidateId
-      Comment
-      CreatedOn
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;
@@ -113,53 +78,55 @@ export const deleteRecuriterComment = /* GraphQL */ `
   ) {
     deleteRecuriterComment(input: $input, condition: $condition) {
       id
-      CandidateId
-      Comment
-      CreatedOn
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
+      owner
     }
   }
 `;
-export const createApplicantEmployer = /* GraphQL */ `
-  mutation CreateApplicantEmployer(
-    $input: CreateApplicantEmployerInput!
-    $condition: ModelApplicantEmployerConditionInput
+export const updateApplicantProfile = /* GraphQL */ `
+  mutation UpdateApplicantProfile(
+    $input: UpdateApplicantProfileInput!
+    $condition: ModelApplicantProfileConditionInput
   ) {
-    createApplicantEmployer(input: $input, condition: $condition) {
+    updateApplicantProfile(input: $input, condition: $condition) {
       id
-      CandidateId
-      EmployerCode
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
+        bucket
+        region
+        key
+      }
+      employer
       createdAt
       updatedAt
+      owner
     }
   }
 `;
-export const updateApplicantEmployer = /* GraphQL */ `
-  mutation UpdateApplicantEmployer(
-    $input: UpdateApplicantEmployerInput!
-    $condition: ModelApplicantEmployerConditionInput
+export const updateRecuriterComment = /* GraphQL */ `
+  mutation UpdateRecuriterComment(
+    $input: UpdateRecuriterCommentInput!
+    $condition: ModelRecuriterCommentConditionInput
   ) {
-    updateApplicantEmployer(input: $input, condition: $condition) {
+    updateRecuriterComment(input: $input, condition: $condition) {
       id
-      CandidateId
-      EmployerCode
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
-    }
-  }
-`;
-export const deleteApplicantEmployer = /* GraphQL */ `
-  mutation DeleteApplicantEmployer(
-    $input: DeleteApplicantEmployerInput!
-    $condition: ModelApplicantEmployerConditionInput
-  ) {
-    deleteApplicantEmployer(input: $input, condition: $condition) {
-      id
-      CandidateId
-      EmployerCode
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;

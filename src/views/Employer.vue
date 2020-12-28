@@ -3,7 +3,9 @@
 </template>
 
 <script>
-
+export default {
+    name: "Employer"
+};
 </script>
 
 <style lang="scss" scoped>

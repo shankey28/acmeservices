@@ -2,137 +2,113 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateApplicantProfile = /* GraphQL */ `
-  subscription OnCreateApplicantProfile {
-    onCreateApplicantProfile {
+  subscription OnCreateApplicantProfile($owner: String) {
+    onCreateApplicantProfile(owner: $owner) {
       id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
         bucket
         region
         key
       }
+      employer
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onUpdateApplicantProfile = /* GraphQL */ `
-  subscription OnUpdateApplicantProfile {
-    onUpdateApplicantProfile {
+  subscription OnUpdateApplicantProfile($owner: String) {
+    onUpdateApplicantProfile(owner: $owner) {
       id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
         bucket
         region
         key
       }
+      employer
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onDeleteApplicantProfile = /* GraphQL */ `
-  subscription OnDeleteApplicantProfile {
-    onDeleteApplicantProfile {
+  subscription OnDeleteApplicantProfile($owner: String) {
+    onDeleteApplicantProfile(owner: $owner) {
       id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
         bucket
         region
         key
       }
+      employer
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onCreateRecuriterComment = /* GraphQL */ `
-  subscription OnCreateRecuriterComment {
-    onCreateRecuriterComment {
+  subscription OnCreateRecuriterComment($owner: String) {
+    onCreateRecuriterComment(owner: $owner) {
       id
-      CandidateId
-      Comment
-      CreatedOn
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onUpdateRecuriterComment = /* GraphQL */ `
-  subscription OnUpdateRecuriterComment {
-    onUpdateRecuriterComment {
+  subscription OnUpdateRecuriterComment($owner: String) {
+    onUpdateRecuriterComment(owner: $owner) {
       id
-      CandidateId
-      Comment
-      CreatedOn
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onDeleteRecuriterComment = /* GraphQL */ `
-  subscription OnDeleteRecuriterComment {
-    onDeleteRecuriterComment {
+  subscription OnDeleteRecuriterComment($owner: String) {
+    onDeleteRecuriterComment(owner: $owner) {
       id
-      CandidateId
-      Comment
-      CreatedOn
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
-    }
-  }
-`;
-export const onCreateApplicantEmployer = /* GraphQL */ `
-  subscription OnCreateApplicantEmployer {
-    onCreateApplicantEmployer {
-      id
-      CandidateId
-      EmployerCode
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateApplicantEmployer = /* GraphQL */ `
-  subscription OnUpdateApplicantEmployer {
-    onUpdateApplicantEmployer {
-      id
-      CandidateId
-      EmployerCode
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onDeleteApplicantEmployer = /* GraphQL */ `
-  subscription OnDeleteApplicantEmployer {
-    onDeleteApplicantEmployer {
-      id
-      CandidateId
-      EmployerCode
-      createdAt
-      updatedAt
+      owner
     }
   }
 `;

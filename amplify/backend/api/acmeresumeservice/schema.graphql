@@ -2,19 +2,22 @@
 type ApplicantProfile @model @auth(rules: [
                       { allow: owner },
                       { allow: private, provider: iam, operations: [ read, update ] }]) 
-                      @key(fields: ["UserName"])
-                      @key(name: "byCareerFocus", fields: ["CaFocus","YoE"])
-                      @key(name: "byGender", fields: ["Gender"]) {
+                      @key(fields: ["userName"])
+                      @key(name: "byCareerFocus", fields: ["caFocus","yOe"])
+                      @key(name: "byGender", fields: ["gender"]) 
+                      @key(name: "byEmployer", fields: ["employer"]) 
+                      {
                       id: ID!
-                      Email: AWSEmail
-                      UserName: String! 
-                      Name: String!
-                      YoE: YearOfExperience!
-                      CaFocus: CareerFocus!
-                      PayOpt: PaymentOption
-                      Gender: Gender
-                      AppStatus: ApplicantStatus
-                      Resume: S3Object
+                      email: AWSEmail
+                      userName: String! 
+                      name: String!
+                      yOe: YearOfExperience!
+                      caFocus: CareerFocus!
+                      payOpt: PaymentOption
+                      gender: Gender
+                      appStatus: ApplicantStatus
+                      resume: S3Object
+                      employer: String
 
                       }
 
@@ -26,17 +29,13 @@ type S3Object @aws_iam @aws_cognito_user_pools{
 
 
 type RecuriterComment @model @auth(rules: [{ allow: owner }, { allow: private, provider: iam, operations: [ read, update ] }]) 
-                      @key(fields: ["CandidateId","CreatedOn"]) {
+                      @key(fields: ["candidateID","createdOn"]) {
                   id: ID!
-                  CandidateId: ID! 
-                  Comment: String
-                  CreatedOn: AWSDateTime!
+                  candidateID: ID! 
+                  comment: String
+                  createdOn: AWSDateTime!
 }
 
-type ApplicantEmployer @model @auth(rules: [{ allow: private }]) {
-  CandidateId: ID!
-  EmployerCode: String!
-}
 
 enum YearOfExperience {
   Lessthan4

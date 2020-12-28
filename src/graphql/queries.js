@@ -2,37 +2,39 @@
 // this is an auto generated file. This will be overwritten
 
 export const getApplicantProfile = /* GraphQL */ `
-  query GetApplicantProfile($UserName: String!) {
-    getApplicantProfile(UserName: $UserName) {
+  query GetApplicantProfile($userName: String!) {
+    getApplicantProfile(userName: $userName) {
       id
-      Email
-      UserName
-      Name
-      YoE
-      CaFocus
-      PayOpt
-      Gender
-      AppStatus
-      Resume {
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
         bucket
         region
         key
       }
+      employer
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const listApplicantProfiles = /* GraphQL */ `
   query ListApplicantProfiles(
-    $UserName: String
+    $userName: String
     $filter: ModelApplicantProfileFilterInput
     $limit: Int
     $nextToken: String
     $sortDirection: ModelSortDirection
   ) {
     listApplicantProfiles(
-      UserName: $UserName
+      userName: $userName
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -40,50 +42,53 @@ export const listApplicantProfiles = /* GraphQL */ `
     ) {
       items {
         id
-        Email
-        UserName
-        Name
-        YoE
-        CaFocus
-        PayOpt
-        Gender
-        AppStatus
-        Resume {
+        email
+        userName
+        name
+        yOe
+        caFocus
+        payOpt
+        gender
+        appStatus
+        resume {
           bucket
           region
           key
         }
+        employer
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }
   }
 `;
 export const getRecuriterComment = /* GraphQL */ `
-  query GetRecuriterComment($CandidateId: ID!, $CreatedOn: AWSDateTime!) {
-    getRecuriterComment(CandidateId: $CandidateId, CreatedOn: $CreatedOn) {
+  query GetRecuriterComment($candidateID: ID!, $createdOn: AWSDateTime!) {
+    getRecuriterComment(candidateID: $candidateID, createdOn: $createdOn) {
       id
-      CandidateId
-      Comment
-      CreatedOn
+      candidateID
+      comment
+      createdOn
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const listRecuriterComments = /* GraphQL */ `
   query ListRecuriterComments(
-    $CandidateId: ID
-    $CreatedOn: ModelStringKeyConditionInput
+    $candidateID: ID
+    $createdOn: ModelStringKeyConditionInput
     $filter: ModelRecuriterCommentFilterInput
     $limit: Int
     $nextToken: String
     $sortDirection: ModelSortDirection
   ) {
     listRecuriterComments(
-      CandidateId: $CandidateId
-      CreatedOn: $CreatedOn
+      candidateID: $candidateID
+      createdOn: $createdOn
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -91,44 +96,12 @@ export const listRecuriterComments = /* GraphQL */ `
     ) {
       items {
         id
-        CandidateId
-        Comment
-        CreatedOn
+        candidateID
+        comment
+        createdOn
         createdAt
         updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getApplicantEmployer = /* GraphQL */ `
-  query GetApplicantEmployer($id: ID!) {
-    getApplicantEmployer(id: $id) {
-      id
-      CandidateId
-      EmployerCode
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listApplicantEmployers = /* GraphQL */ `
-  query ListApplicantEmployers(
-    $filter: ModelApplicantEmployerFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listApplicantEmployers(
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        CandidateId
-        EmployerCode
-        createdAt
-        updatedAt
+        owner
       }
       nextToken
     }

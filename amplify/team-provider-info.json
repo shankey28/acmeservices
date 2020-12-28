@@ -35,7 +35,10 @@
         "acmeresumeservice": {}
       },
       "function": {
-        "S3Trigger1512a6d9": {}
+        "S3Trigger1512a6d9": {},
+        "acmeresumeservicePostConfirmation": {
+          "GROUP": "applicants"
+        }
       }
     }
   }

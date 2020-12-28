@@ -4,15 +4,15 @@
         "precedence": 1
     },
     {
-        "groupName": "applicants",
+        "groupName": "recruiter",
         "precedence": 2
     },
     {
-        "groupName": "recruiter",
+        "groupName": "employer",
         "precedence": 3
     },
     {
-        "groupName": "employer",
+        "groupName": "applicants",
         "precedence": 4
     }
 ]
