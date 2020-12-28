@@ -1,0 +1,18 @@
+[
+    {
+        "groupName": "admins",
+        "precedence": 1
+    },
+    {
+        "groupName": "applicants",
+        "precedence": 2
+    },
+    {
+        "groupName": "recruiter",
+        "precedence": 3
+    },
+    {
+        "groupName": "employer",
+        "precedence": 4
+    }
+]

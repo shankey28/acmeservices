@@ -1,0 +1,72 @@
+
+type ApplicantProfile @model @auth(rules: [
+                      { allow: owner },
+                      { allow: private, provider: iam, operations: [ read, update ] }]) 
+                      @key(fields: ["UserName"])
+                      @key(name: "byCareerFocus", fields: ["CaFocus","YoE"])
+                      @key(name: "byGender", fields: ["Gender"]) {
+                      id: ID!
+                      Email: AWSEmail
+                      UserName: String! 
+                      Name: String!
+                      YoE: YearOfExperience!
+                      CaFocus: CareerFocus!
+                      PayOpt: PaymentOption
+                      Gender: Gender
+                      AppStatus: ApplicantStatus
+                      Resume: S3Object
+
+                      }
+
+type S3Object @aws_iam @aws_cognito_user_pools{
+  bucket: String!
+  region: String!
+  key: String!
+}
+
+
+type RecuriterComment @model @auth(rules: [{ allow: owner }, { allow: private, provider: iam, operations: [ read, update ] }]) 
+                      @key(fields: ["CandidateId","CreatedOn"]) {
+                  id: ID!
+                  CandidateId: ID! 
+                  Comment: String
+                  CreatedOn: AWSDateTime!
+}
+
+type ApplicantEmployer @model @auth(rules: [{ allow: private }]) {
+  CandidateId: ID!
+  EmployerCode: String!
+}
+
+enum YearOfExperience {
+  Lessthan4
+  Morethan4
+}
+
+enum CareerFocus {
+  HealthCare
+  Other
+}
+
+enum Gender {
+  Male
+  Female
+}
+
+enum PaymentOption {
+  OneTimeFee
+  PerInterview  
+}
+
+enum ApplicantStatus {
+  New
+  WaitingRecruiterReview
+  WaitingCustomerResponse
+  SubmittedToEmployer
+  EmployerInterview
+  EmployerOffered
+  EmployerReject
+  ApplicantAccepted
+  ApplicantRejected
+}
+                      

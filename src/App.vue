@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+    <Nav />
+    </div>
+    <router-view/>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from "./components/Nav.vue";
+// import {mapActions} from "vuex";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    Nav
+  },
+  // methods: mapActions("auth",['authAction']),
+  mounted(){
+    this.$store.dispatch("authAction");
+    this.$store.dispatch("getUserGroup");
+
   }
 }
 </script>
-
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
 }
 </style>

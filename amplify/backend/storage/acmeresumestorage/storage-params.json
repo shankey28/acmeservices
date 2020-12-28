@@ -1,0 +1,16 @@
+{
+    "groupPermissionMap": {
+        "admins": [
+            "read"
+        ],
+        "applicants": [
+            "read"
+        ],
+        "recruiter": [
+            "read"
+        ],
+        "employer": [
+            "read"
+        ]
+    }
+}
