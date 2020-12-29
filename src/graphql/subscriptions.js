@@ -2,8 +2,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateApplicantProfile = /* GraphQL */ `
-  subscription OnCreateApplicantProfile($owner: String) {
-    onCreateApplicantProfile(owner: $owner) {
+  subscription OnCreateApplicantProfile {
+    onCreateApplicantProfile {
       id
       email
       userName
@@ -19,15 +19,24 @@ export const onCreateApplicantProfile = /* GraphQL */ `
         key
       }
       employer
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onUpdateApplicantProfile = /* GraphQL */ `
-  subscription OnUpdateApplicantProfile($owner: String) {
-    onUpdateApplicantProfile(owner: $owner) {
+  subscription OnUpdateApplicantProfile {
+    onUpdateApplicantProfile {
       id
       email
       userName
@@ -43,15 +52,24 @@ export const onUpdateApplicantProfile = /* GraphQL */ `
         key
       }
       employer
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onDeleteApplicantProfile = /* GraphQL */ `
-  subscription OnDeleteApplicantProfile($owner: String) {
-    onDeleteApplicantProfile(owner: $owner) {
+  subscription OnDeleteApplicantProfile {
+    onDeleteApplicantProfile {
       id
       email
       userName
@@ -67,48 +85,51 @@ export const onDeleteApplicantProfile = /* GraphQL */ `
         key
       }
       employer
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onCreateRecuriterComment = /* GraphQL */ `
-  subscription OnCreateRecuriterComment($owner: String) {
-    onCreateRecuriterComment(owner: $owner) {
+  subscription OnCreateRecuriterComment {
+    onCreateRecuriterComment {
       id
       candidateID
       comment
-      createdOn
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onUpdateRecuriterComment = /* GraphQL */ `
-  subscription OnUpdateRecuriterComment($owner: String) {
-    onUpdateRecuriterComment(owner: $owner) {
+  subscription OnUpdateRecuriterComment {
+    onUpdateRecuriterComment {
       id
       candidateID
       comment
-      createdOn
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onDeleteRecuriterComment = /* GraphQL */ `
-  subscription OnDeleteRecuriterComment($owner: String) {
-    onDeleteRecuriterComment(owner: $owner) {
+  subscription OnDeleteRecuriterComment {
+    onDeleteRecuriterComment {
       id
       candidateID
       comment
-      createdOn
       createdAt
       updatedAt
-      owner
     }
   }
 `;

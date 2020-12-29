@@ -22,68 +22,18 @@ export const createApplicantProfile = /* GraphQL */ `
         key
       }
       employer
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const deleteApplicantProfile = /* GraphQL */ `
-  mutation DeleteApplicantProfile(
-    $input: DeleteApplicantProfileInput!
-    $condition: ModelApplicantProfileConditionInput
-  ) {
-    deleteApplicantProfile(input: $input, condition: $condition) {
-      id
-      email
-      userName
-      name
-      yOe
-      caFocus
-      payOpt
-      gender
-      appStatus
-      resume {
-        bucket
-        region
-        key
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
       }
-      employer
       createdAt
       updatedAt
-      owner
-    }
-  }
-`;
-export const createRecuriterComment = /* GraphQL */ `
-  mutation CreateRecuriterComment(
-    $input: CreateRecuriterCommentInput!
-    $condition: ModelRecuriterCommentConditionInput
-  ) {
-    createRecuriterComment(input: $input, condition: $condition) {
-      id
-      candidateID
-      comment
-      createdOn
-      createdAt
-      updatedAt
-      owner
-    }
-  }
-`;
-export const deleteRecuriterComment = /* GraphQL */ `
-  mutation DeleteRecuriterComment(
-    $input: DeleteRecuriterCommentInput!
-    $condition: ModelRecuriterCommentConditionInput
-  ) {
-    deleteRecuriterComment(input: $input, condition: $condition) {
-      id
-      candidateID
-      comment
-      createdOn
-      createdAt
-      updatedAt
-      owner
     }
   }
 `;
@@ -108,9 +58,68 @@ export const updateApplicantProfile = /* GraphQL */ `
         key
       }
       employer
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      owner
+    }
+  }
+`;
+export const deleteApplicantProfile = /* GraphQL */ `
+  mutation DeleteApplicantProfile(
+    $input: DeleteApplicantProfileInput!
+    $condition: ModelApplicantProfileConditionInput
+  ) {
+    deleteApplicantProfile(input: $input, condition: $condition) {
+      id
+      email
+      userName
+      name
+      yOe
+      caFocus
+      payOpt
+      gender
+      appStatus
+      resume {
+        bucket
+        region
+        key
+      }
+      employer
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createRecuriterComment = /* GraphQL */ `
+  mutation CreateRecuriterComment(
+    $input: CreateRecuriterCommentInput!
+    $condition: ModelRecuriterCommentConditionInput
+  ) {
+    createRecuriterComment(input: $input, condition: $condition) {
+      id
+      candidateID
+      comment
+      createdAt
+      updatedAt
     }
   }
 `;
@@ -123,10 +132,22 @@ export const updateRecuriterComment = /* GraphQL */ `
       id
       candidateID
       comment
-      createdOn
       createdAt
       updatedAt
-      owner
+    }
+  }
+`;
+export const deleteRecuriterComment = /* GraphQL */ `
+  mutation DeleteRecuriterComment(
+    $input: DeleteRecuriterCommentInput!
+    $condition: ModelRecuriterCommentConditionInput
+  ) {
+    deleteRecuriterComment(input: $input, condition: $condition) {
+      id
+      candidateID
+      comment
+      createdAt
+      updatedAt
     }
   }
 `;

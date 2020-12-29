@@ -14,9 +14,24 @@
       <li class="mr-6" v-if="user">
         <div class="font-semibold text-black-500">Welcome {{ usergroup}} {{ user.username }}</div>
       </li>
-      <li class="mr-6" v-if="user">
-        <router-link to="/albums">
-          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Albums</div>
+      <li class="mr-6" v-if="usergroup === 'recruiter'">
+        <router-link to="/recruiter">
+          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
+        </router-link>
+      </li>
+      <li class="mr-6" v-if="usergroup === 'applicants'">
+        <router-link to="/applicant">
+          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
+        </router-link>
+      </li>
+      <li class="mr-6" v-if="usergroup === 'admins'">
+        <router-link to="/admins">
+          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
+        </router-link>
+      </li>
+      <li class="mr-6" v-if="usergroup === 'employer'">
+        <router-link to="/employer">
+          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
         </router-link>
       </li>
       <li class="mr-6" v-if="user">
@@ -24,6 +39,7 @@
       </li>
     </ul>
   </div>
+
 </template>
 
 <script>
@@ -34,7 +50,7 @@ export default {
       await this.$store.dispatch("logout");
       this.$router.push("/");
     },
-  },
+  },  
   computed: {
     ...mapGetters({
       user: "user",

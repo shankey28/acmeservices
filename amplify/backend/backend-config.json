@@ -43,10 +43,15 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "S3Trigger4bb28983": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true
     }
   },
   "storage": {
-    "acmeresumestorage": {
+    "acmeresumeservice": {
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
@@ -68,13 +73,6 @@
           "category": "auth",
           "resourceName": "userPoolGroups",
           "attributes": [
-            "applicantsGroupRole"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
             "recruiterGroupRole"
           ]
         },
@@ -82,14 +80,23 @@
           "category": "auth",
           "resourceName": "userPoolGroups",
           "attributes": [
-            "employerGroupRole"
+            "applicantsGroupRole"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "S3Trigger4bb28983",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
           ]
         }
       ]
     }
   },
   "api": {
-    "acmeresumeservice": {
+    "acmeresumeservices": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {

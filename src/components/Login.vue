@@ -32,7 +32,7 @@ export default {
     username: "",
     password: "",
     email: "",
-    error: "",
+    error: ""
   }),
   methods: {
     ...mapActions({
@@ -44,13 +44,21 @@ export default {
           username: this.username,
           password: this.password,
         });
-        const usergroup = mapGetters(["auth/usergroup"])
-        this.$router.push("/albums");
+        if(this.usergroup === "recruiter")
+        this.$router.push("/recruiter")
+        else if(this.usergroup === "admins")
+        this.$router.push("/admin")
+        else if (this.usergroup === "applicants")
+        this.$router.push("/applicant")
+        else if(this.usergroup === "employer")
+        this.$router.push("/employer")
       } catch (error) {
         this.error = error;
       }
     },
   },
+  computed: mapGetters(["usergroup"])
+  
 };
 </script>
 

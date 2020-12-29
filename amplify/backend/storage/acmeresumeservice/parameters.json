@@ -1,7 +1,7 @@
 {
-    "bucketName": "acmeresumes3",
-    "authPolicyName": "s3_amplify_258a7117",
-    "unauthPolicyName": "s3_amplify_258a7117",
+    "bucketName": "acmeresumeservice",
+    "authPolicyName": "s3_amplify_f5c571a6",
+    "unauthPolicyName": "s3_amplify_f5c571a6",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },
@@ -24,5 +24,5 @@
     "s3PermissionsAuthenticatedPrivate": "DISALLOW",
     "s3PermissionsAuthenticatedUploads": "DISALLOW",
     "AuthenticatedAllowList": "DISALLOW",
-    "triggerFunction": "NONE"
+    "triggerFunction": "S3Trigger4bb28983"
 }

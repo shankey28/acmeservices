@@ -1,6 +1,6 @@
 projects:
-  acmeresumeservice:
-    schemaPath: src/graphql/schema.json
+  acmeresumeservices:
+    schemaPath: amplify/backend/api/acmeresumeservices/build/schema.graphql
     includes:
       - src/graphql/**/*.js
     excludes:

@@ -2,20 +2,29 @@ import { Auth } from "aws-amplify";
 
 export const auth = {
 
-    state: { user: null , usergroup: null},
+    state: { user: null, username: null , usergroup: null, useremail: null},
     mutations: {
         setUser(state, payload) {
-            state.user = payload;
+            console.log(payload);
+            try{
+                state.user = payload;
+                state.username = payload.username;
+                state.useremail = payload.attributes.email;
+            }
+            catch(error){
+                console.log(error);
+            }
+
         },
         setUserGroup(state,payload) {
             state.usergroup = payload;
-
         }
 
     },
     actions: {
         async logout({ commit }) {
             commit("setUser", null);
+            commit("setUserGroup",null);
             return await Auth.signOut();
         },
         async login({ commit }, { username, password }) {
@@ -85,7 +94,10 @@ export const auth = {
     },
     getters: {
         user: (state) => state.user,
-        usergroup: (state) => state.usergroup
+        usergroup: (state) => state.usergroup,
+        useremail: (state) => state.useremail,
+        username: (state) => state.username
+        // useremail: (state) => state.user.ATTRIBUTES.EMAIL
 
     }
 

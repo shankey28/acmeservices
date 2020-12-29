@@ -1,0 +1,19 @@
+{
+    "groupPermissionMap": {
+        "admins": [
+            "create/update",
+            "read",
+            "delete"
+        ],
+        "recruiter": [
+            "create/update",
+            "read",
+            "delete"
+        ],
+        "applicants": [
+            "create/update",
+            "read",
+            "delete"
+        ]
+    }
+}

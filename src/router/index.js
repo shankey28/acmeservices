@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import SignUp from '../views/SignUp'
 import Recruiter from '../views/Recruiter'
+import Admin from '../views/Admin'
+import Employer from '../views/Employer'
 import ApplicantDetail from '../views/ApplicantDetail'
 import {Auth} from "aws-amplify";
 
@@ -20,9 +22,15 @@ const routes = [
     component: SignUp
   },
   {
-    path: '/applicant/:id',
+    path: '/applicant',
     name: "ApplicantDetailPage",
     component: ApplicantDetail,
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/admin',
+    name: "AdminPage",
+    component: Admin,
     meta: {requiresAuth: true}
   },
   {

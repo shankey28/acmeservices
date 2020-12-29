@@ -1,7 +1,6 @@
 
 type ApplicantProfile @model @auth(rules: [
-                      { allow: owner },
-                      { allow: private, provider: iam, operations: [ read, update ] }]) 
+                      { allow: private }]) 
                       @key(fields: ["userName"])
                       @key(name: "byCareerFocus", fields: ["caFocus","yOe"])
                       @key(name: "byGender", fields: ["gender"]) 
@@ -18,6 +17,7 @@ type ApplicantProfile @model @auth(rules: [
                       appStatus: ApplicantStatus
                       resume: S3Object
                       employer: String
+                      comments: [RecuriterComment] @connection(keyName: "byCandidateId", fields: ["id"])
 
                       }
 
@@ -28,12 +28,11 @@ type S3Object @aws_iam @aws_cognito_user_pools{
 }
 
 
-type RecuriterComment @model @auth(rules: [{ allow: owner }, { allow: private, provider: iam, operations: [ read, update ] }]) 
-                      @key(fields: ["candidateID","createdOn"]) {
+type RecuriterComment @model @auth(rules: [{ allow: private }]) 
+                      @key(name:"byCandidateId" fields: ["candidateID"]) {
                   id: ID!
                   candidateID: ID! 
                   comment: String
-                  createdOn: AWSDateTime!
 }
 
 

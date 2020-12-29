@@ -1,10 +1,144 @@
 <template>
-<h3>Applicant Detail</h3>
+ <div class="bg-gray-200 min-h-screen pt-2 font-mono my-16">
+        <div class="container mx-auto">
+            <div class="inputs w-full max-w-2xl p-6 mx-auto">
+                <h2 class="text-2xl text-gray-900">Profile detail</h2>
+                <form class="mt-6 border-t border-gray-400 pt-4" @submit.prevent="saveForm">
+                    <div class='flex flex-wrap -mx-3 mb-6'>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>email address</label>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>{{useremail}}</label>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>UserName</label>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>{{username}}</label>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Name</label>
+                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' type='text' v-model="name"  required>
+                        </div>
+
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Gender</label>
+                            <div class="flex-shrink w-full inline-block relative">
+                                <select class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded" v-model="gender">
+                                    <option>choose ...</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+
+                                </select>
+                                <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Career Interest</label>
+                            <div class="flex-shrink w-full inline-block relative">
+                                <select class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded" v-model="careerInt">
+                                    <option>choose ...</option>
+                                    <option>HealthCare</option>
+                                    <option>Other</option>
+
+                                </select>
+                                <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Years OF Experience</label>
+                            <div class="flex-shrink w-full inline-block relative">
+                                <select class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded" v-model="yOe">
+                                    <option>choose ...</option>
+                                    <option>More than 4 years</option>
+                                    <option>Less than 4 years</option>
+
+                                </select>
+                                <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>pick your payment method</label>
+                            <div class="flex-shrink w-full inline-block relative">
+                                <select class="block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded" v-model="payMethod">
+                                    <option>choose ...</option>
+                                    <option>One time fee $140</option>
+                                    <option>Per Interview $20</option>
+                                </select>
+                                <div class="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='w-full md:w-full px-3 mb-6'>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'>Upload Resume</label>
+                            <div class="flex-shrink w-full inline-block relative">
+                            <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' @change="updateFile" type='file' accept=".doc, .docx, .pdf" required>
+
+                            </div>
+                        </div>
+                        
+
+                        <div class="personal w-full border-t border-gray-400 pt-4">
+
+                            <div class="flex justify-end">
+                                <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
+import {mapGetters,mapActions} from "vuex";
 export default {
-  name: "ApplicantDetail"
+  data: ()=>({
+      name:"",
+      gender:"",
+      careerInt:"",
+      yOe:"",
+      payMethod:"",
+      resumeFile: null
+  }),  
+  methods: {
+      ...mapActions(["updateApplicant"]),
+      updateFile(file){
+          this.resumeFile = file.target.files[0];
+          console.log(this.resumeFile);
+      },
+      async saveForm(){
+        //   appStatus:New,caFocus:Other,name:"Chris Johnson",userName:"user123",yOe:Morethan4
+          const applicantData = {
+              appStatus:"New",
+              caFocus: this.careerInt,
+              name: this.name,
+              userName: this.username,
+              yOe: this.yOe ,
+              payOpt: this.payMethod,
+              
+          }
+
+          try{
+           await this.updateApplicant({applicantData,resumeFile: this.resumeFile});
+          }
+          catch(error)
+          {
+              console.log("Error creating profile", error);
+          }
+      }
+
+
+  },
+  computed: mapGetters({user: "user", useremail: "useremail", username: "username"})
+
+
 };
 </script>
 

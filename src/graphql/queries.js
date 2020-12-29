@@ -19,9 +19,18 @@ export const getApplicantProfile = /* GraphQL */ `
         key
       }
       employer
+      comments {
+        items {
+          id
+          candidateID
+          comment
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -56,52 +65,44 @@ export const listApplicantProfiles = /* GraphQL */ `
           key
         }
         employer
+        comments {
+          nextToken
+        }
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
   }
 `;
 export const getRecuriterComment = /* GraphQL */ `
-  query GetRecuriterComment($candidateID: ID!, $createdOn: AWSDateTime!) {
-    getRecuriterComment(candidateID: $candidateID, createdOn: $createdOn) {
+  query GetRecuriterComment($id: ID!) {
+    getRecuriterComment(id: $id) {
       id
       candidateID
       comment
-      createdOn
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const listRecuriterComments = /* GraphQL */ `
   query ListRecuriterComments(
-    $candidateID: ID
-    $createdOn: ModelStringKeyConditionInput
     $filter: ModelRecuriterCommentFilterInput
     $limit: Int
     $nextToken: String
-    $sortDirection: ModelSortDirection
   ) {
     listRecuriterComments(
-      candidateID: $candidateID
-      createdOn: $createdOn
       filter: $filter
       limit: $limit
       nextToken: $nextToken
-      sortDirection: $sortDirection
     ) {
       items {
         id
         candidateID
         comment
-        createdOn
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }
