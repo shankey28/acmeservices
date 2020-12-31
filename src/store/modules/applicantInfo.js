@@ -23,7 +23,6 @@ export const applicantInfo = {
     actions: {
 
         async updateApplicant({rootState},{applicantData,resumeFile}){
-            debugger;
             const {
                 aws_user_files_s3_bucket_region: region,
                 aws_user_files_s3_bucket: bucket
@@ -39,6 +38,7 @@ export const applicantInfo = {
             // payOpt: this.payMethod,
             const inputData = {appStatus: applicantData.appStatus, 
                                caFocus: applicantData.caFocus,
+                               email: applicantData.email,
                                name: applicantData.name,
                                userName: applicantData.userName,
                                yOe: JSON.stringify(applicantData.yOe).includes("Less than")?"Lessthan4":"Morethan4",
@@ -59,7 +59,6 @@ export const applicantInfo = {
 
                 if(!item.data.getApplicantProfile)
                 {
-                    debugger;
                 await API.graphql(
                     graphqlOperation(createApplicantProfile, { input: inputData })
                 );

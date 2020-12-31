@@ -87,7 +87,7 @@ export default {
           username,
           password,
         });
-        this.$router.push("/albums");
+        this.$router.push("/applicant");
       } catch (error) {
         console.log(error);
         this.error = error;

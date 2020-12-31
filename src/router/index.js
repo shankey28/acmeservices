@@ -6,6 +6,7 @@ import Recruiter from '../views/Recruiter'
 import Admin from '../views/Admin'
 import Employer from '../views/Employer'
 import ApplicantDetail from '../views/ApplicantDetail'
+import ActivityReport from '../views/ActivityReport'
 import {Auth} from "aws-amplify";
 
 Vue.use(VueRouter)
@@ -31,6 +32,12 @@ const routes = [
     path: '/admin',
     name: "AdminPage",
     component: Admin,
+    meta: {requiresAuth: true}
+  },
+  {
+    path: '/activityreport',
+    name: "ActivityReport",
+    component: ActivityReport,
     meta: {requiresAuth: true}
   },
   {

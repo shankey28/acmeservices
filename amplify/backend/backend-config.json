@@ -48,6 +48,21 @@
       "service": "Lambda",
       "providerPlugin": "awscloudformation",
       "build": true
+    },
+    "resumeserviceEmail": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "acmeresumeservices",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
+          ]
+        }
+      ]
     }
   },
   "storage": {

@@ -12,21 +12,21 @@
         </router-link>
       </li>
       <li class="mr-6" v-if="user">
-        <div class="font-semibold text-black-500">Welcome {{ usergroup}} {{ user.username }}</div>
+        <div class="font-semibold text-black-500">Welcome {{ user.username }}</div>
       </li>
       <li class="mr-6" v-if="usergroup === 'recruiter'">
         <router-link to="/recruiter">
           <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
         </router-link>
       </li>
-      <li class="mr-6" v-if="usergroup === 'applicants'">
-        <router-link to="/applicant">
-          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
-        </router-link>
-      </li>
       <li class="mr-6" v-if="usergroup === 'admins'">
-        <router-link to="/admins">
-          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Dashboard</div>
+        <router-link to="/admin">
+          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Admin</div>
+        </router-link>
+      </li>      
+      <li class="mr-6" v-if="usergroup === 'admins'">
+        <router-link to="/activityreport">
+          <div class="text-blue-500 hover:text-blue-800 cursor-pointer">Activity Report</div>
         </router-link>
       </li>
       <li class="mr-6" v-if="usergroup === 'employer'">

@@ -118,6 +118,7 @@ export default {
           const applicantData = {
               appStatus:"New",
               caFocus: this.careerInt,
+              email: this.useremail,
               name: this.name,
               userName: this.username,
               yOe: this.yOe ,
