@@ -52,7 +52,7 @@ export default {
     data:()=>({tablename:"",importselected: false, datafile: null,tableoptions:""}),
 
     methods:{
-        ...mapActions({createTable:"createDDBTable",deleteTable:"deleteDDBTable"}),
+        ...mapActions({createTable:"createDDBTable",deleteTable:"deleteDDBTable",updateTable:"updateDDBTable"}),
          submitForm(){
             if(this.tableoptions == "Create Table")
             {
@@ -67,22 +67,30 @@ export default {
             // {
 
             // }
-            // else if(this.tableoptions == "Import Table Data")
-            // {
+            else if(this.tableoptions == "Import Table Data")
+            {
+                debugger;
+                this.updateTable({file:this.datafile,tablename:this.tablename});
 
-            // }
+            }
 
         },
         updateFile(file){
-          this.resumeFile = file.target.files[0];
-          console.log(this.resumeFile);
+          this.datafile = file.target.files[0];
+          console.log(this.datafile);
       },
         cascade(e){
             this.tableoptions = e.target.value;
             if(e.target.value == "Import Table Data")
+            {
             this.importselected = true;
+            this.tablestatus = false;
+            }
             else
+            {
+            this.tablestatus = false;
             this.importselected = false;
+            }
         }
 
 

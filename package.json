@@ -13,6 +13,8 @@
     "aws-amplify": "^3.3.13",
     "aws-sdk": "^2.819.0",
     "core-js": "^3.6.5",
+    "csv-parse": "^4.14.2",
+    "fs": "0.0.1-security",
     "uuid": "^8.3.2",
     "uuidv4": "^6.2.6",
     "vue": "^2.6.11",
@@ -43,7 +45,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-console": 1,
+      "no-debugger": 1
+    }
   },
   "browserslist": [
     "> 1%",

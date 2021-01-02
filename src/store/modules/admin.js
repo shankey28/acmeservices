@@ -32,7 +32,6 @@ export const admin = {
         async deleteDDBTable({commit},tablename){
 
                 var cred = await Auth.currentCredentials() ;
-                debugger;
                 api.checkTableExists(tablename,cred).then((status)=>{
                     if(status)
                     {
@@ -42,7 +41,7 @@ export const admin = {
                             commit("setTableStatus","deleted");
                             }
                             else{
-                                commit("setTableStatus","not delete");
+                                commit("setTableStatus","not deleted");
                             }
                         })
                     }
@@ -53,6 +52,28 @@ export const admin = {
 
 
 
+        },
+
+        async updateDDBTable({commit}, {file,tablename}){
+
+            var cred = await Auth.currentCredentials() ;
+            api.checkTableExists(tablename, cred).then((status)=>{
+                if(status)
+                {
+                    api.updateTable(tablename,file,cred).then((status)=>{
+                        if(status)
+                        {
+                        commit("setTableStatus","updated");
+                        }
+                        else{
+                            commit("setTableStatus","not updated");
+                        }
+                    })
+                }
+                else{
+                    commit("setTableStatus","does not exist")
+                }
+            })    
         }
     },
     mutations: {
