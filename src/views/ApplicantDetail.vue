@@ -108,6 +108,7 @@ export default {
       resumeFile: null
   }),  
   methods: {
+      
       ...mapActions(["updateApplicant"]),
       updateFile(file){
           this.resumeFile = file.target.files[0];

@@ -3,6 +3,7 @@ import {createApplicantProfile,updateApplicantProfile} from "@/graphql/mutations
 import {getApplicantProfile} from "@/graphql/queries";
 import { uuid } from "uuidv4";
 import awsconfig from "@/aws-exports";
+import cw from "../../api/cw";
 
 
 
@@ -36,7 +37,7 @@ export const applicantInfo = {
             // userName: this.username,
             // yOe: this.yOe ,
             // payOpt: this.payMethod,
-            const inputData = {appStatus: applicantData.appStatus, 
+            var inputData = {appStatus: applicantData.appStatus, 
                                caFocus: applicantData.caFocus,
                                email: applicantData.email,
                                name: applicantData.name,
@@ -54,7 +55,7 @@ export const applicantInfo = {
                     contentType: resumeFile.type,
                     metadata: { resumeId }
                 })
-                const {username} = rootState.auth;
+                const {username,usercred,usergroup} = rootState.auth;
                 const item = await API.graphql(graphqlOperation(getApplicantProfile,{userName:username}));
 
                 if(!item.data.getApplicantProfile)
@@ -62,12 +63,14 @@ export const applicantInfo = {
                 await API.graphql(
                     graphqlOperation(createApplicantProfile, { input: inputData })
                 );
+                await cw.processLogs(usercred,username,usergroup,"created application")
                 }
                 else {
-                    debugger;
+                inputData.id = item.data.getApplicantProfile.id;
                 await API.graphql(
                     graphqlOperation(updateApplicantProfile, { input: inputData })
                 ) ;   
+                await cw.processLogs(usercred,username,usergroup,"updated application")
             }            
                 return Promise.resolve("success");
 

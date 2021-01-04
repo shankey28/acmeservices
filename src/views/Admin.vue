@@ -33,7 +33,6 @@
                         </div>
                             <div class="flex justify-center">
                                 <button class="appearance-none bg-gray-200 text-gray-900 px-2 py-1 shadow-sm border border-gray-400 rounded-md mr-3" type="submit">Submit</button>
-
                             <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' v-if="tablestatus">Table {{tablestatus}}</label>  
 
                             </div>
@@ -50,10 +49,32 @@ import {mapActions,mapGetters} from "vuex";
 export default {
     name: "Admin",
     data:()=>({tablename:"",importselected: false, datafile: null,tableoptions:""}),
+    unmounted(){
+
+
+    },
 
     methods:{
-        ...mapActions({createTable:"createDDBTable",deleteTable:"deleteDDBTable",updateTable:"updateDDBTable"}),
-         submitForm(){
+        ...mapActions({createTable:"createDDBTable",deleteTable:"deleteDDBTable",updateTable:"updateDDBTable",getTableData:"getDDBTable"}),
+        
+         async setTableData(tabledata){
+                let csvitems = ["year","title"].join(",") + '\n';
+                for(const item of Object.entries(tabledata.Items))
+                {
+                    csvitems += `${item[1].year.S},${item[1].title.S}` + '\n';
+                }
+                const blob = new Blob([csvitems], { type: 'text/csv' })
+                const link = document.createElement('a')
+                link.href = URL.createObjectURL(blob)
+                link.download = "Movies.csv"
+                link.click()
+                URL.revokeObjectURL(link.href)
+
+
+         }
+
+        ,
+        async submitForm(){
             if(this.tableoptions == "Create Table")
             {
                 this.createTable(this.tablename);
@@ -63,10 +84,13 @@ export default {
             {
                 this.deleteTable(this.tablename);
             }
-            // else if(this.tableoptions == "Export Table Data")
-            // {
+            else if(this.tableoptions == "Export Table Data")
+            {                
+              var tabledata = await this.getTableData(this.tablename);
+              console.log("Admin vue data: ",this.tabledata)
+               await this.setTableData(tabledata);
 
-            // }
+            }
             else if(this.tableoptions == "Import Table Data")
             {
                 debugger;
@@ -83,19 +107,19 @@ export default {
             this.tableoptions = e.target.value;
             if(e.target.value == "Import Table Data")
             {
-            this.importselected = true;
-            this.tablestatus = false;
+             this.importselected = true;
             }
-            else
-            {
-            this.tablestatus = false;
-            this.importselected = false;
+            else{
+                this.importselected = false;
+
             }
         }
 
 
     },
-    computed: mapGetters({tablestatus:"tablestatus"})
+    computed: {
+        ...mapGetters({tablestatus:"tablestatus"}),
+    }
 
 }
 </script>
